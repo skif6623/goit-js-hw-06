@@ -1,10 +1,9 @@
-const ulRef = document.querySelector('#categories');
+const listRef = document.querySelector("#categories");
+console.log("Number of categories", listRef.children.length);
 
-console.log('Number of categories', ulRef.children.length);
+const itemEl = listRef.querySelectorAll(".item");
 
-const liRef = ulRef.querySelectorAll('.item');
-
-liRef.forEach(liEl => {
-  console.log('Category:', liEl.querySelector('h2').textContent);
-  console.log('Elements:', liEl.querySelectorAll('li').length);
+itemEl.forEach(item => {
+	console.log("Category", item.querySelector("h2").textContent);
+	console.log("Elements", item.querySelectorAll("li").length);
 });
