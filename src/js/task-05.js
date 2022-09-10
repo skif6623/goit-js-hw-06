@@ -1,10 +1,10 @@
 const refs = {
-	input: document.querySelector("#name-input"),
-	span: document.querySelector("span"),
+  input: document.querySelector('#name-input'),
+  span: document.querySelector('span'),
 };
 
-refs.input.addEventListener("input", onInputChanged);
+refs.input.addEventListener('input', onInputChanged);
 
 function onInputChanged(event) {
-	refs.span.textContent = event.currentTarget.value;
+  refs.span.textContent = event.currentTarget.value;
 }
