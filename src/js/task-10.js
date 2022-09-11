@@ -2,6 +2,8 @@ function getRandomHexColor() {
 	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
+const markupTable = [];
+
 const refs = {
 	input: document.querySelector("input"),
 	createBtn: document.querySelector("[data-create]"),
@@ -9,12 +11,13 @@ const refs = {
 	box: document.querySelector("#boxes"),
 };
 
-refs.input.addEventListener("input", onChangedInput);
 refs.createBtn.addEventListener("click", onCreateBtnClick);
 refs.destroyBtn.addEventListener("click", onDestroyBtnClick);
 
+refs.input.addEventListener("input", onChangedInput);
+
 function onChangedInput(event) {
-	createBoxes();
+	return event.currentTarget.value;
 }
 
 function onCreateBtnClick(event) {
