@@ -10,25 +10,30 @@ const refs = {
   destroyBtn: document.querySelector('[data-destroy]'),
   box: document.querySelector('#boxes'),
 };
-
 refs.createBtn.addEventListener('click', onCreateBtnClick);
 refs.destroyBtn.addEventListener('click', onDestroyBtnClick);
 
-refs.input.addEventListener('input', onChangedInput);
+refs.input.addEventListener('change', createBoxes);
 
-function onChangedInput(event) {
-  return event.currentTarget.value;
+function createBoxes(event) {
+  for (let i = 0; i < refs.input.value; i += 1) {
+    const markupEl = `<div style="width: ${30 + i * 10}px; height: ${
+      30 + i * 10
+    }px; background-color: ${getRandomHexColor()}"></div>`;
+    markupTable.push(markupEl);
+  }
 }
 
 function onCreateBtnClick(event) {
-  console.log('click create');
+  refs.box.insertAdjacentHTML('afterbegin', markupTable.join(''));
 }
 
 function onDestroyBtnClick(event) {
-  console.log('click destroy');
+  while (refs.box.firstChild) {
+    refs.box.removeChild(refs.box.firstChild);
+  }
 }
 
-function createBoxes(amount) {
-  const div = document.createElement('div');
-  console.log(div);
-}
+// ВИДАЛЕННЯ ЕЛЕМЕНТА ПРАЦЮЄ ЧЕРЕЗ Ж.ЯК ЗРОБИТИ ПРАВИЛЬНО ?
+// ВОНО ВИДАЛЯЄТЬСЯ, АЛЕ ЯКЩО ВВЕСТИ НОВЕ ЧИСЛО,
+// ТО ВЕРНЕТЬСЯ СТАРА КОЛЕКЦІЯ І ДО НЕЇ ДОБАВИТЬСЯ НОВА
