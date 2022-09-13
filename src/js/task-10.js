@@ -14,7 +14,8 @@ refs.createBtn.addEventListener('click', onCreateBtnClick);
 refs.destroyBtn.addEventListener('click', onDestroyBtnClick);
 
 function onChangedInput(event) {
-  createBoxes();
+  const amount = event.currentTarget.value
+	console.log(amount);
 }
 
 function onCreateBtnClick(event) {
@@ -26,6 +27,5 @@ function onDestroyBtnClick(event) {
 }
 
 function createBoxes(amount) {
-  const div = document.createElement('div');
-  console.log(div);
+
 }
